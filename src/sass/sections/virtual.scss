@@ -1,0 +1,126 @@
+.virtual__container {
+    padding: 75px 0 90px;
+}
+
+.virtual__grid {
+    display: grid;
+    @include max-width (1440px, 100%);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 75px 60px;
+
+    .grid__card:hover {
+        .card__underline {
+            width: 100%;
+        }
+    }
+}
+
+.card__image-container {
+    width: 100%;
+    margin-bottom: 25px;
+
+    .card__image {
+        width: 100%;
+    }
+}
+
+.card__underline {
+    width: 300px;
+    height: 2px;
+    background-color: $color-secondary;
+    margin: 10px 0 15px;
+    transition: 0.8s linear;
+}
+
+.card__line__one {
+    @include font ($roboto, 22px, 36px, 100);
+}
+
+.card__line__two {
+    @include font ($roboto, 18px, 32px, 100);
+}
+
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 1360
+@media all and (max-width: 1360px) {
+    .virtual__grid {
+        gap: 60px 40px;
+    }
+}
+
+// 1100
+@media all and (max-width: 1110px) {
+    .virtual__grid {
+        @include max-width (768px, 100%);
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 60px 100px;
+        margin: 0 auto;
+    }
+
+    .card__underline {
+        width: 150px;
+    }
+
+    .card__line__one {
+        @include font ($roboto, 20px, 30px, 100);
+    }
+    
+    .card__line__two {
+        @include font ($roboto, 16px, 22px, 100);
+    }
+}
+
+// 1024
+@media all and (max-width: 1024px) {
+    .virtual__container {
+        padding: 60px 0 80px;
+    }
+}
+
+// 768
+@media all and (max-width: 768px) {
+    .virtual__grid {
+        @include max-width (620px, 100%);
+        gap: 40px 60px;
+    }
+
+    .card__line__one {
+        @include font ($roboto, 18px, 28px, 100);
+    }
+  }
+
+// 550
+@media all and (max-width: 550px) {
+    .virtual__container {
+        padding: 40px 0 60px;
+    }
+
+    .virtual__grid {
+        @include max-width (280px, 100%);
+        grid-template-columns: 1fr ;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 40px;
+        margin: 0 auto;
+    }
+
+    .card__image-container {
+        margin-bottom: 15px;
+    }
+
+    .card__underline {
+        width: 150px;
+    }
+
+    .card__line__one {
+        @include font ($roboto, 16px, 24px, 100);
+    }
+}
+
+
+

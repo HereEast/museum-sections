@@ -1,0 +1,114 @@
+.welcome__section {
+    background-color: $color-black;
+}
+
+.welcome__container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.welcome__content {
+    width: 100%;
+    position: absolute;
+    padding-top: 150px;
+    left: 0;
+    z-index: 10;
+}
+
+.welcome__text {
+    margin-bottom: 75px;
+    
+    .welcome__subtitle {
+        @include font ($roboto, 28px, 36px, 100);
+        color: $color-white;
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
+}
+
+.button-welcome {
+    width: 360px;
+    height: 75px;
+    border-radius: 10px;
+    background-color: $color-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $hover-transition;
+
+    &:hover {
+        background-color: $color-primary;
+    }
+}
+
+.button-welcome__text {
+    @include font ($roboto, 22px, 32px, 100);
+    color: $color-white;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// // 1170
+@media all and (max-width: 1170px) {
+    .welcome__content {
+        padding-top: 90px;
+    }
+    
+    .welcome__text {
+        margin-bottom: 50px;
+        
+        .welcome__subtitle {
+            @include font ($roboto, 24px, 32px, 100);
+            margin-top: 25px;
+        }
+    }
+
+    .button-welcome {
+        width: 300px;
+        height: 60px;
+    }
+
+    .button-welcome__text {
+        @include font ($roboto, 20px, 30px, 100);
+    }
+}
+
+// 768
+@media all and (max-width: 768px) {
+    .welcome__container {
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .welcome__content {
+            padding-top: 0;
+            position: static;
+        }
+    }
+
+    .welcome__text {
+        .welcome__subtitle {
+            @include font ($roboto, 20px, 30px, 100);
+            text-align: center;
+        }
+    }
+
+    .button-welcome {
+        display: none;
+    }
+}
+
+// 420
+@media all and (max-width: 420px) {
+    .welcome__text {
+        .welcome__subtitle {
+            @include font ($roboto, 16px, 24px, 100);
+        }
+    }
+}
+

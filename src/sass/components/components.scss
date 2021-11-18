@@ -1,0 +1,101 @@
+// VIDEO BUTTONS
+.video__button {
+    fill: $color-white;
+    opacity: 0.8;
+    display: flex;
+    transition: $hover-transition;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+// PROGRESS BAR
+.progress-bar {
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    font-size: 0;
+    width: 100%;
+    height: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #710707 0%, #710707 0%, 
+                                          #C4C4C4 0%, #C4C4C4 100%);
+    transition: $hover-transition;
+    cursor: pointer;
+
+    &:hover {
+        background: linear-gradient(to right, $color-progress-dark-hover 0%, 
+                    $color-progress-dark-hover 0%, $color-progress-light-hover 0%, 
+                    $color-progress-light-hover 100%);
+    }
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: $color-white;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    transition: $hover-transition;
+    cursor: pointer;
+}
+
+
+// VOLUME PROGRESS BAR
+.volume__progress {
+    background: linear-gradient(to right, #710707 40%, #710707 40%, 
+                                          #C4C4C4 0%, #C4C4C4 100%);
+    transition: $hover-transition;
+    cursor: pointer;
+
+    &:hover {
+        background: linear-gradient(to right, $color-progress-dark-hover 40%, 
+                    $color-progress-dark-hover 40%, $color-progress-light-hover 0%, 
+                    $color-progress-light-hover 100%);
+    }
+}
+
+
+//////////////
+// BUY BUTTON
+.button_small {
+    width: 175px;
+    background: #000;
+    color: #FFF;
+    font-family: $roboto;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 300;
+    padding: 12px 0;
+    transition: $hover-transition;
+    cursor: pointer;
+
+    &:hover {
+        background: $color-primary;
+    }
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 1200
+@media all and (max-width: 1200px) {
+    .progress-bar {
+        height: 5px;
+    }
+}
+
+// 540
+@media all and (max-width: 540px) {
+    .button_small {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

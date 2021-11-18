@@ -1,0 +1,73 @@
+.ticket__radio {
+    //position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    cursor: pointer; 
+}
+
+.ticket__radio:hover {
+    .checkmark {
+        border: 2px solid $color-primary;
+
+        &::after {
+            background: $color-primary;
+        }
+    }
+
+    label {
+        color: $color-primary;
+        cursor: pointer;
+    }
+}
+
+label {
+    @include font ($roboto, 22px, 32px, 300);
+    color: #000;
+    padding-left: 20px; 
+    transition: $hover-transition;
+}
+
+.radio__input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    padding: 3px;
+    transition: $hover-transition;
+
+    &::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #000;
+        display: none;
+        transition: $hover-transition;
+    }
+}
+
+.radio__input:checked + .checkmark::after {
+    display: block;
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 1024
+@media all and (max-width: 1024px) {
+    .tickets__type-column {
+        display: none;
+    }
+}

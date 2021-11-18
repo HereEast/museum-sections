@@ -1,0 +1,178 @@
+.video__controls {
+    height: 85px;
+    background-color: $color-black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+
+    .controls__container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+// PLAY BUTTON
+.play__button {
+    .play-ic__svg {
+        width: 23px;
+        height: 30px;
+    }
+
+    .pause-ic__svg {
+        fill: white;
+        width: 23px;
+        height: 30px;
+        display: none;
+    }
+}
+
+// VIDEO PROGRESS
+.progress__controls {
+    width: 100%;
+    font-size: 0;
+    margin: 0 50px;
+    transition: $hover-transition;
+}
+
+// VOLUME
+.volume__controls {
+    display: flex;
+    align-items: center;
+
+    .volume__button {
+        margin-right: 50px;
+
+        .volume-ic__svg {
+            width: 38px;
+            height: 30px;
+        }
+
+        .novolume-ic__svg {
+            width: 38px;
+            height: 30px;
+            fill: white;
+            display: none;
+        }
+    }
+
+    .volume__container {
+        width: 155px;
+    }
+}
+
+// FULLSCREEN
+.fullscreen__control {
+    display: flex;
+    margin-left: 50px;
+
+    .fullscreen__button {
+        svg {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 1200
+@media all and (max-width: 1200px) {
+    .video__controls {
+        height: 60px;
+    }
+
+    .progress__controls {
+        margin: 0 30px;
+    }
+
+    .volume__controls {
+        .volume__button {
+            margin-right: 30px;
+
+            svg {
+                width: 26px;
+                height: 20px;
+            }
+        }
+
+        .volume__container {
+            width: 145px;
+        }
+    }
+
+    .fullscreen__control {
+        margin-left: 30px;
+
+        .fullscreen__button {
+            svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+    }
+}
+
+// 768
+@media all and (max-width: 768px) {
+    .video__controls {
+        height: 55px;
+        padding: 0 30px;
+    }
+
+    .play__controls {
+        order: 1;
+        margin-right: 30px;
+    }
+
+    .volume__controls {
+        order: 2;
+
+        .volume__button {
+            margin-right: 0;
+        }
+
+        .volume__container {
+            display: none;
+        }
+    }
+
+    .progress__controls {
+        order: 3;
+    }
+
+    .fullscreen__control {
+        order: 4;
+        margin-left: 0;
+    }
+}
+
+// 420
+@media all and (max-width: 420px) {
+    .video__controls {
+        height: 50px;
+        padding: 0 20px;
+    }
+
+    .play__controls {
+        .play__button {
+            svg {
+                width: 14px;
+                height: 18px;
+            }
+        }
+    }
+
+    .fullscreen__control {
+        .fullscreen__button {
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

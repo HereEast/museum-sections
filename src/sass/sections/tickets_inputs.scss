@@ -1,0 +1,123 @@
+.tickets__amount-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.amount_basic {
+    margin-bottom: 35px;
+}
+
+.tickets__age {
+    @include font ($roboto, 22px, 32px, 300);
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.amount__form {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #000;
+    box-sizing: border-box;
+
+    .amount_minus,
+    .amount_plus {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font ($roboto, 32px, 42px, 300);
+        color: #000;
+        transition: $hover-transition;
+        cursor: pointer;
+        
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}
+
+.amount_number {
+    @include font ($roboto, 22px, 32px, 300);
+    color: #000;
+    text-align: center;
+}
+
+// TOTAL AND BUTTON
+
+.tickets__submit-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 50px;
+}
+
+.buy__button {
+    margin-top: 30px;
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 1024
+@media all and (max-width: 1024px) {
+    .tickets__amount-column {
+        align-items: flex-start;
+    }
+
+    .amount_basic {
+        margin-bottom: 25px;
+    }
+
+    .tickets__submit-block {
+        align-items: flex-start;
+        margin-top: 55px;
+    }
+
+    .amount__form {
+        width: 175px;
+    }
+
+    .tickets__total__title {
+        @include font ($roboto, 28px, 38px, 500);
+    }
+
+    .buy__button {
+        margin-top: 20px;
+    }
+}
+
+// 768
+@media all and (max-width: 768px) {
+    .tickets__submit-block {
+        margin-top: 44px;
+    }
+}
+
+// 540
+@media all and (max-width: 540px) {
+    .tickets__amount-column {
+        align-items: center;
+    }
+
+    .tickets__age {
+        @include font ($roboto, 16px, 24px, 300);
+    }
+
+    .tickets__submit-block {
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .tickets__total__title {
+        @include font ($roboto, 16px, 24px, 500);
+    }
+
+    .buy__button {
+        margin-top: 40px;
+    }
+}

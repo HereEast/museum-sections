@@ -15,6 +15,8 @@ controlsPlayButton.addEventListener("click", toggleMainVideo);
 
 function toggleMainVideo() {
     if(mainVideo.paused) {
+        pausePlayingSmallVideo();
+
         mainPlayButton.style.display = "none";
         playSVG.style.display = "none";
         pauseSVG.style.display = "block";
@@ -104,3 +106,58 @@ function rewindVideo() {
     mainVideo.currentTime = mainVideo.duration * videoProgress.value / 100;
     changeVideoProgress();
 }
+
+
+////////////////////////////////
+// VIDEO GALLERY ///////////////
+////////////////////////////////
+
+const videos = document.querySelectorAll(".slider-video");
+const buttons = document.querySelectorAll(".play-button__gallery");
+
+const playButtons = Array.from(buttons);
+const smallVideos = Array.from(videos);
+
+playButtons.forEach((btn) => {
+    btn.addEventListener("click", playGalleryVideo);
+})
+
+smallVideos.forEach((video) => {
+    video.addEventListener("click", pausePlayingVideo);
+})
+
+function playGalleryVideo(event) {
+    mainVideo.pause();
+    
+    let targetBtn = event.target.closest(".play-button__gallery");
+    let n = targetBtn.getAttribute("data-btn");
+
+    smallVideos.forEach((v) => {
+        if(!v.paused) {
+            v.pause();
+            let n = v.getAttribute("data-video");
+            playButtons[n].style.display = "block";
+        }
+    })
+
+    smallVideos[n].play();
+    targetBtn.style.display = "none";
+}
+
+function pausePlayingVideo(event) {
+    let targetVideo = event.target;
+    let n = targetVideo.getAttribute("data-video");
+    targetVideo.pause();
+    playButtons[n].style.display = "block";
+}
+
+function pausePlayingSmallVideo() {
+    smallVideos.forEach((vid) => {
+        vid.pause();
+
+        playButtons.forEach((btn) => {
+            btn.style.display = "block";
+        })
+    })
+}
+

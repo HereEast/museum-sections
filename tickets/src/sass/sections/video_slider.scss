@@ -1,0 +1,158 @@
+.video-gallery {
+    //max-width: $content-width;
+    //width: 100%;
+    margin-top: 40px;
+}
+
+.video-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 40px;
+}
+
+.video-gallery-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9
+    overflow: hidden;
+
+
+    .gallery__poster {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .slider-video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+    }
+}
+
+// SMALL VIDEO PLAY BUTTON
+
+.play__button_gallery {
+    position: absolute;
+    top: calc(50% - 23px);
+    z-index: 2;
+    cursor: pointer;
+
+    svg path:first-child {
+        fill: #212121;
+        opacity: 0.8;
+        transition: $hover-transition;
+    }
+
+    svg path:last-child {
+        fill: #FFF;
+    }
+}
+
+.play__button_gallery:hover {
+    svg path:first-child {
+        fill: #212121;
+        opacity: 1;
+    }
+}
+
+// DOTS
+
+.video-dots-container {
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 40px;
+
+    .video-dots {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.video-dot__btn {
+    width: 12px;
+    height: 12px;
+    outline: none;
+    background-color: #999;
+    border-radius: 50%;
+    transition: $hover-transition;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #333;
+    }
+}
+
+.video-dot__btn_active {
+    background-color: #333;
+    cursor: initial;
+}
+
+.video-arrow__btn {
+    cursor: pointer;
+
+    .video-arrow__svg {
+        path {
+            transition: $hover-transition;
+            fill: #999;
+        }
+    }
+}
+
+.video-arrow__btn:hover {
+    .video-arrow__svg {
+        path {
+            fill: #333;
+        }
+    }
+}
+
+///////////////////
+// MEDIA QUERIES //
+///////////////////
+
+// 960
+@media all and (max-width: 960px) {
+    .video-gallery {
+        margin-top: 20px;
+    }
+
+    .video-row {
+        column-gap: 20px;
+    }
+
+    .video-dots-container {
+        width: 190px;
+        padding-top: 20px;
+    }
+}
+
+// 768
+@media all and (max-width: 768px) {
+    .video-row {
+        grid-template-columns: 1fr 1fr;
+
+        .video-gallery-container:last-child {
+            display: none;
+        }
+    }
+}
+
+// 420
+@media all and (max-width: 420px) {
+    .video-gallery {
+        margin-top: 40px;
+    }
+
+    .video-dots-container {
+        padding-top: 40px;
+    }
+}
+
